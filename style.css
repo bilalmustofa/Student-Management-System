@@ -1,17 +1,21 @@
-/***Student Information Input Style***/
 body {
     background-color: #F6F9FE;
 }
+
+/* Student Information Container */
 .student-info-box {
     background-color: #FEFEFE;
     margin: 15px;
     border-radius: 10px;
     box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
 }
+/* Heading */
 .title {
   position: relative; 
   padding: 10px;
+
 }
+/* line at the bottom of Heading */
 .title::after {
   content: "";
   position: absolute;
@@ -21,8 +25,23 @@ body {
   background: #0D6EFD;
 }
 
+/* input information container */
 .input-info {
     background-color: #FEFEFE;
     border-radius: 10px;
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
+}
+.input-info label {
+  font-weight: bold;
+}
+.form-control:focus, .form-select:focus {
+  box-shadow: none;
+}
+
+/* Student List Box */
+.student-list-box {
+    background-color: #FEFEFE;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
 }
