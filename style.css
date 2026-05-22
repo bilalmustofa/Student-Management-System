@@ -1,0 +1,28 @@
+/***Student Information Input Style***/
+body {
+    background-color: #F6F9FE;
+}
+.student-info-box {
+    background-color: #FEFEFE;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
+}
+.title {
+  position: relative; 
+  padding: 10px;
+}
+.title::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  width: 100px; 
+  height: 2px;
+  background: #0D6EFD;
+}
+
+.input-info {
+    background-color: #FEFEFE;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
+}
