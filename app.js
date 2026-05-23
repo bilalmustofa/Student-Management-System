@@ -28,7 +28,6 @@ server.post("/insertStudent", (req, res) => {
 
     db.query(sql, [fullName, email, phoneNumber, department, address, gender],(err, result) => {
         if(err) {
-            res.send("Student is NOT added!");
             console.log(err);
         } else {
             res.send(`${fullName} is added`);
@@ -38,6 +37,20 @@ server.post("/insertStudent", (req, res) => {
 
 
 });
+
+// send data to frontend
+server.get("/showStudent", (req, res) => {
+    const sql = `SELECT id, full_name, email, phone, department FROM students`;
+
+    db.query(sql, (err, result) => {
+        if(err){
+            console.log(err);
+        } else {
+            console.log("Student list is display");
+            res.json(result);
+        }
+    })
+})
 
 
 

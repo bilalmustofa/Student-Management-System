@@ -34,31 +34,86 @@ studentForm.addEventListener("submit", (e) => {
     })
     .then(data => {
         const message = document.getElementById("messageDisplay");
+        
+        message.innerHTML += `
+        <p class="alert alert-success">${data}</p>
+        `
 
-        message.textContent = data;
-        message.style.color = "green";
+        // update student list
+        studentList();
+
+        //clear Form
+        clearForm();
+
         setTimeout(() => {
             message.textContent = "";
-        }, 2000);
+        }, 3000);
     })
     .catch((err) => {
         const message = document.getElementById('messageDisplay');
 
-        message.textContent = err.message;
-        message.style.color = "red";
+        message.innerHTML += `
+        <p class="alert alert-danger">${err.message}</p>
+        `
+        
         setTimeout(() => {
             message.textContent = "";
-        }, 2000);
+        }, 3000);
         
     });
-
-    //clear Form
-    clearForm();
 });
+
+// Receive data from server
+function studentList() {
+    fetch('http://localhost:2020/showStudent')
+    .then(res => res.json())
+    .then(data => {
+        const tableBody = document.getElementById('tableBody');
+        tableBody.innerHTML = "";
+
+        data.forEach(student => {
+            let className = '';
+            if(student.department === "Information System"){
+                className = "IS-color";
+            }
+            if(student.department === "Information Technology"){
+                className = "IT-color";
+            }
+            if(student.department === "Software Engineer"){
+                className = "SE-color";
+            }
+            if(student.department === "Computer Science"){
+                className = "CS-color";
+            }
+
+            tableBody.innerHTML += `
+            <tr>
+                <td>${student.id}</td>
+                <td>${student.full_name}</td>
+                <td>${student.email}</td>
+                <td><p class="${className}">${student.department}</p></td>
+                <td>${student.phone}</td>
+                <td>
+                    <span class="btn bg-warning me-1"><i class="fa-solid fa-edit"></i></span>
+                    <span class="btn bg-danger text-white"><i class="fa-solid fa-trash"></i></span>
+                </td>
+            </tr>
+            `
+            const studentNumber = document.getElementById('studentNumber').textContent = `
+            Showing ${data.length} Students`;
+        });
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+studentList(); 
+
+
+
 
 // Reseat the form
 const reset = document.getElementById('reset');
-
 function clearForm() {
     //clear the form
     const fullName = document.getElementById('fullName').value = "";
