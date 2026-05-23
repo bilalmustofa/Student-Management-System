@@ -18,7 +18,7 @@
         <div class="header-info container text-center">
             <h1 class="title d-flex align-items-center justify-content-center me-2"><i class="fa-solid fa-user text-primary"></i>Student Information</h1>
             <p class="mb-4">Add, Update and Manage Student Information</p>
-            <p id="messageDisplay"></p>
+            <div id="messageDisplay"></div>
         </div>
 
         <!-- Input Information container -->
@@ -116,7 +116,7 @@
         <div class="table-box table-responsive-md m-3">
             <table class="table table-borderedless">
                 <thead class="table-success">
-                    <tr>
+                    <tr class="text-center">
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
@@ -125,31 +125,11 @@
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider">
-                    <tr>
-                        <td>1</td>
-                        <td>Bilal</td>
-                        <td>bilal@gmail.com</td>
-                        <td>Information System</td>
-                        <td>09-75-87-81-74</td>
-                        <td>
-                            <span class="btn bg-warning me-1"><i class="fa-solid fa-edit"></i></span>
-                            <span class="btn bg-danger text-white"><i class="fa-solid fa-trash"></i></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Ahebabu</td>
-                        <td>Ahebabu@gmail.com</td>
-                        <td>Information System</td>
-                        <td>09-11-43-21-90</td>
-                        <td>
-                            <span class="btn bg-warning me-1"><i class="fa-solid fa-edit"></i></span>
-                            <span class="btn bg-danger text-white"><i class="fa-solid fa-trash"></i></span>
-                        </td>
-                    </tr>
+                <tbody class="table-group-divider text-center" id="tableBody">
+                    
                 </tbody>
             </table>
+            <div class="text-center py-2"><p id="studentNumber"></p></div>
             
         </div>
 

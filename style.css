@@ -45,3 +45,33 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
 }
+
+/* Department column color*/
+ table td p.IS-color {
+  text-align: center;
+  background-color:#D0FEDA;
+  color:#74AE82;
+  border-radius: 15px;
+  font-weight: bold;
+}
+ table td p.IT-color {
+  text-align: center;
+  background-color:#E4DFFE;
+  color:#5C48C0;
+  border-radius: 15px;
+  font-weight: bold;
+}
+ table td p.SE-color {
+  text-align: center;
+  background-color:#FFF4D8;
+  color:#F9AC4A;
+  border-radius: 15px;
+  font-weight: bold;
+}
+ table td p.CS-color {
+  text-align: center;
+  background-color:#B6DBFF;
+  color: #3F60CB;
+  border-radius: 15px;
+  font-weight: bold;
+}
