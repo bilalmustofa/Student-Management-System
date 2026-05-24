@@ -50,7 +50,53 @@ server.get("/showStudent", (req, res) => {
             res.json(result);
         }
     })
-})
+});
+
+// send one student data by id
+server.get("/students/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = `SELECT * FROM students WHERE id = ?`;
+
+    db.query(sql, [id], (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("send one student");
+            res.json(result[0]);
+        }
+    });
+});
+
+// Update Student data
+server.put("/updateStudent/:id", (req, res) => {
+    const id = req.params.id;
+    const {fullName, email, phoneNumber, department, address, gender} = req.body;
+
+    const sql = `UPDATE students SET full_name = ?, email = ?, phone = ?, department = ?, address = ?, gender = ? WHERE id = ?`;
+
+    db.query(sql,  [fullName, email, phoneNumber, department, address, gender, id], (err, result) => {
+        if(err){
+            console.log(err);
+        } else {
+            res.send("Student Updated Successfully");
+        }
+    });
+}) ;
+
+// delete single student
+server.delete("/deleteStudent/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = `DELETE FROM students WHERE id = ?`;
+
+    db.query(sql, [id], (err, result) =>{
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("Student deleted successfully");
+            res.send("Student deleted successfully")
+        }
+    })
+});
 
 
 
